@@ -4,25 +4,30 @@
     box-sizing: border-box;
 
     font-family: 'Courier New', Courier, monospace;
+
+    background-color: black;
+    color: white;
 }
 
-.calculator {
-    max-width: 15em;
-
+.container {
     display: flex;
-    flex-direction: column;
 
     justify-content: center;
     align-content: center;
+}
+
+.calculator {
+    max-width: 20em;
 
     border-style: solid;
     border-radius: 10px;
 
     margin: 5em;
+    padding: 0.5em 2em;
 }
 
 .display {
-    margin: 1em;
+    margin: 1em 0em;
 
     display: flex;
     flex-direction: column;
@@ -34,10 +39,21 @@
 
 .display > div {
     margin: 0.5em;
+    min-height: 1.25em;
 }
 
 button {
     padding: 1em;
+    border-style: solid;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #202020;
+}
+
+button:active {
+    background-color: black;
 }
 
 .buttons {

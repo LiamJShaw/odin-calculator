@@ -6,14 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculator</title>
     <link rel="stylesheet" href="style.css">
+    <script src="calculator.js" defer></script>
 </head>
 <body>
     <div class="container">
         <div class="calculator">
 
             <div class="display">
-                <div class="previousDisplay">Previous</div>
-                <div class="currentDisplay">00000000</div>
+                <div class="previousDisplay">previous</div>
+                <div class="currentDisplay">current</div>
             </div>
             
             <div class="buttons">
@@ -25,32 +26,32 @@
                 <div class="bottom-buttons">
                     <div class="numbers">
                         <div class="top">
-                            <button id="7">7</button>
-                            <button id="8">8</button>
-                            <button id="9">9</button>
+                            <button class="numberButton" id="7">7</button>
+                            <button class="numberButton" id="8">8</button>
+                            <button class="numberButton" id="9">9</button>
                         </div>
     
                         <div class="middle">
-                            <button id="4">4</button>
-                            <button id="5">5</button>
-                            <button id="6">6</button>
+                            <button class="numberButton" id="4">4</button>
+                            <button class="numberButton" id="5">5</button>
+                            <button class="numberButton" id="6">6</button>
                         </div>
     
                         <div class="bottom">
-                            <button id="1">1</button>
-                            <button id="2">2</button>
-                            <button id="3">3</button>
+                            <button class="numberButton" id="1">1</button>
+                            <button class="numberButton" id="2">2</button>
+                            <button class="numberButton" id="3">3</button>
                         </div>
     
                         <div class="zero">
-                            <button id="0">0</button>
+                            <button class="numberButton" id="0">0</button>
                         </div>
                     </div>
         
                     <div class="functions">
-                        <button id="plus">+</button>
-                        <button id="minus">-</button>
-                        <button id="mutliply">*</button>
+                        <button class="operatorButton" id="add">+</button>
+                        <button class="operatorButton" id="minus">-</button>
+                        <button class="operatorButton" id="mutliply">*</button>
                         <button id="equals">=</button>
                     </div>
                 </div>
