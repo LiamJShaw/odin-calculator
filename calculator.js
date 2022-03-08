@@ -17,14 +17,8 @@ const sum = function(nums) {
 };
 
 const multiply = function(num1, num2) {
-  
-  let total = 1;
-  
-  for (let i = 0; i < nums.length; i++) {
-    total = total * nums[i];
-  }
 
-  return total; 
+  return num1 * num2; 
 };
 
 const power = function(num1, num2) {
@@ -48,17 +42,24 @@ const factorial = function(num) {
   return total;
 };
 
-let operands = [];
-let operators = [];
+let currentNumber = '';
+let currentOperation = [];
+let previousOperations = []; // This is what you last added
+let total = 0;
 
-function operate(operandArray, operatorArray) {
+function operate(operations) {
 
   let result = 0;
 
-  while (operandArray.length > 0) {
-    let num1 = operandArray.pop();
-    let num2 = operandArray.pop();
-    let operator = operatorArray.pop();
+  console.table(operations);
+
+  while (operations.length > 0) {
+
+    let num1 = operations.shift();
+    let operator = operations.shift();
+    let num2 = operations.shift();
+
+    console.log("Operator: " + operator)
 
     switch (operator) {
       case "add":
@@ -76,10 +77,18 @@ function operate(operandArray, operatorArray) {
       default:
         result = "no operator";
     }
-
-    return result;
-
   }  
+
+  return result;
+}
+
+const currentNumberDisplay = document.querySelector("#currentDisplay")
+const previousDisplay = document.querySelector('#previousDisplay');
+
+function updateDisplay() {
+  console.log("update display");
+  currentNumberDisplay.textContent = currentNumber;
+  previousDisplay.textContent = currentOperation;
 }
 
 // Number button event listeners
@@ -90,9 +99,9 @@ numberButtonsArray.forEach((button) => {
   button.addEventListener('click', (e) => {
     
     const number = e.target.id;
-    console.log(number);
+    currentNumber += number;
 
-    operands.push(number);
+    updateDisplay();
   })
 })
 
@@ -104,9 +113,11 @@ operatorButtonsArray.forEach((button) => {
   button.addEventListener('click', (e) => {
     
     const symbol = e.target.id;
-    console.log(symbol);
 
-    operators.push(symbol);
+    currentOperation.push(parseInt(currentNumber));
+    currentNumber = '';
+
+    currentOperation.push(symbol);
   })
 })
 
@@ -114,11 +125,28 @@ operatorButtonsArray.forEach((button) => {
 const equalsButton = document.getElementById('equals');
 equalsButton.addEventListener('click', (e) => {
 
-  console.log(operate(operands, operators));
+  currentOperation.push(parseInt(currentNumber));
+
+  updateDisplay();
+  console.log(operate(currentOperation));
+  currentNumber = '';
+  currentOperation = [];
 })
 
-operands.push(1);
-operands.push(1);
-operators.push("add");
+// currentOperation.push(1);
+// currentOperation.push(1);
+// currentOperation.push("add");
+// currentOperation.push(1);
 
-console.log(operate(operands, operators));
+// allOperations.push(currentOperation);
+// currentOperation = [];
+
+// currentOperation.push(2);
+// currentOperation.push("add");
+// currentOperation.push(2);
+
+// allOperations.push(currentOperation);
+
+// console.table(allOperations);
+
+// console.log(operate(allOperations));
