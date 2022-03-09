@@ -30,7 +30,7 @@
 }
 
 .display {
-    margin: 2em 0em;
+    margin: 2em 0em 1em 0em;
 
     display: flex;
     flex-direction: column;
@@ -53,7 +53,6 @@
 #currentDisplay {
     font-size: larger;
     font-weight: bold;
-
 }
 
 button {
@@ -77,7 +76,7 @@ button:active {
 
 .top-buttons {
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
 
     margin: 0.5em;
 

@@ -123,13 +123,11 @@ function clear() {
 }
 
 function backspace() {
-  
-  let deletedChar = currentOperation.pop();
 
-  if (isNaN(deletedChar)) {
-    
-  } else {
+  if (!(currentNumber === "")) {
     currentNumber = currentNumber.slice(0, -1);
+  } else {
+    currentOperation.pop();
   }
 }
 
@@ -155,11 +153,17 @@ const operatorButtonsArray = Array.from(operatorButtons);
 operatorButtonsArray.forEach((button) => {
   button.addEventListener('click', (e) => {
     
-    const symbol = e.target.id;
+    console.log(currentNumber);
 
-    currentOperation.push(parseInt(currentNumber));
+    if (currentNumber) {
+      currentOperation.push(parseInt(currentNumber));
+    }
+
     currentNumber = '';
 
+    console.table(currentOperation);
+
+    const symbol = e.target.id;
     currentOperation.push(symbol);
 
     updateDisplay();
