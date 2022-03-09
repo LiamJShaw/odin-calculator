@@ -3,7 +3,7 @@
     padding: 0;
     box-sizing: border-box;
 
-    font-family: 'Courier New', Courier, monospace;
+    font-family: Arial, Helvetica, sans-serif;
 
     background-color: black;
     color: white;
@@ -24,10 +24,13 @@
 
     margin: 5em;
     padding: 0.5em 2em;
+
+    box-shadow: 0.1em 0.2em;
+
 }
 
 .display {
-    margin: 1em 0em;
+    margin: 2em 0em;
 
     display: flex;
     flex-direction: column;
@@ -42,8 +45,19 @@
     min-height: 1.25em;
 }
 
+#previousDisplay {
+    color: grey;
+    font-size: smaller;
+}
+
+#currentDisplay {
+    font-size: larger;
+    font-weight: bold;
+
+}
+
 button {
-    padding: 1em;
+    padding: 1.8em;
     border-style: solid;
     border-radius: 5px;
 }
@@ -100,3 +114,55 @@ button:active {
     justify-content: center;
     gap: 0.25em;
 }
+
+
+#backspace {
+    /* center the icon */
+    padding-left: 1.4em;
+}
+
+/* Backspace from css.gg */
+
+.gg-backspace {
+    box-sizing: border-box;
+    position: relative;
+    display: block;
+    width: 1em;
+    height: 1em;
+    transform: scale(var(--ggs,1));
+    border: 2px solid;
+    border-left: 0;
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px
+  }
+  .gg-backspace::after,
+  .gg-backspace::before {
+    content: "";
+    display: block;
+    box-sizing: border-box;
+    position: absolute
+  }
+  .gg-backspace::before {
+    background:
+        linear-gradient( to left,
+        currentColor 18px,transparent 0)
+        no-repeat center center/10px 2px;
+    border-right: 3px solid transparent;
+    box-shadow: inset 0 0 0 2px;
+    right: 2px;
+    bottom: 1px;
+    width: 8px;
+    height: 8px;
+    border-left: 3px solid transparent;
+    transform: rotate(45deg)
+  }
+  .gg-backspace::after {
+    width: 10px;
+    height: 10px;
+    border-top: 2px solid;
+    border-left: 2px solid;
+    border-top-left-radius: 1px;
+    transform: rotate(-45deg);
+    top: 0;
+    left: -5px
+  }
