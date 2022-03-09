@@ -112,6 +112,28 @@ function updateDisplay() {
   previousOperation = previousDisplayValue;
 }
 
+function clear() {
+  currentNumber = '';
+  currentOperation = [];
+  previousOperation = "";
+  total = 0;
+
+  currentNumberDisplay.textContent = "";
+  previousDisplay.textContent = "";
+}
+
+function backspace() {
+  
+  let deletedChar = currentOperation.pop();
+
+  if (isNaN(deletedChar)) {
+    
+  } else {
+    currentNumber = currentNumber.slice(0, -1);
+  }
+}
+
+
 // Number button event listeners
 const numberButtons = document.getElementsByClassName("numberButton");
 const numberButtonsArray = Array.from(numberButtons);
@@ -150,4 +172,20 @@ equalsButton.addEventListener('click', (e) => {
 
   equalsButtonPressed();
 
+})
+
+// Clear button event listener
+const clearButton = document.getElementById('clear');
+clearButton.addEventListener('click', (e) => {
+
+  clear();
+
+})
+
+// Backspace button event listener
+const backspaceButton = document.getElementById('backspace');
+backspaceButton.addEventListener('click', (e) => {
+
+  backspace();
+  updateDisplay();
 })
